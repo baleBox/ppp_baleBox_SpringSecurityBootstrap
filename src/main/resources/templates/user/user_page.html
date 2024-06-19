@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <!--Юзер с ролью-->
             <p class="navbar-brand text-white">
-                <b><span class="align-middle" th:text="${user.email}"></span></b>
+                <b><span class="align-middle" th:text="${user.username}"></span></b>
                 <span class="align-middle">with roles:</span>
                 <span class="align-middle" th:text="${user.roles}"></span>
             </p>
@@ -36,10 +36,11 @@
             <div class="p-0 col-2">
                 <div class="nav flex-column nav-pills pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <!--Вкладка админа-->
-                    <a class="nav-link" href="/admin/users" sec:authorize="hasAuthority('ROLE_ADMIN')" role="tab"
+                    <a class="nav-link" href="/admin/admin_page" sec:authorize="hasAuthority('ROLE_ADMIN')" role="tab"
                        aria-controls="v-pills-home" aria-selected="true">Admin</a>
                     <!--Вкладка пользователя-->
-                    <a class="nav-link active" href="/user/info" sec:authorize="(hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER'))" role="tab"
+                    <a class="nav-link active" href="/user/user_page"
+                       sec:authorize="(hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER'))" role="tab"
                        aria-controls="v-pills-profile" aria-selected="false">User</a>
                 </div>
             </div>
@@ -72,7 +73,7 @@
                                         <td th:text="${user.firstName}"></td>
                                         <td th:text="${user.lastName}"></td>
                                         <td th:text="${user.age}"></td>
-                                        <td th:text="${user.email}"></td>
+                                        <td th:text="${user.username}"></td>
                                         <td th:text="${user.roles}">
                                     </tr>
                                     </tbody>

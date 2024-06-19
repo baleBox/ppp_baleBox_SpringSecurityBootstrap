@@ -22,20 +22,20 @@ public class AdminController {
     public String pageForAdmins(@AuthenticationPrincipal User admin, Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("admin", admin);
-        model.addAttribute("userList", userService.getAll());
+        model.addAttribute("userList", userService.findAll());
         model.addAttribute("roleList", roleService.roleList());
-        return "admin_page";
+        return "admin/admin_page";
     }
 
     @PutMapping()
     public String updateUser(@ModelAttribute("user") User user) {
         userService.update(user);
-        return "redirect:/admin_page";
+        return "redirect:/admin/admin_page";
     }
 
     @DeleteMapping("/{id}")
     public String removeUser(@PathVariable("id") long id) {
         userService.delete(id);
-        return "redirect:/admin_page";
+        return "redirect:/admin/admin_page";
     }
 }
