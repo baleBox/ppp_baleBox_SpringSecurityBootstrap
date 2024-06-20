@@ -19,23 +19,23 @@ public class AdminController {
 
 
     @GetMapping()
-    public String pageForAdmins(@AuthenticationPrincipal User admin, Model model) {
+    public String adminsPage(@AuthenticationPrincipal User admin, Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("admin", admin);
         model.addAttribute("userList", userService.findAll());
         model.addAttribute("roleList", roleService.roleList());
-        return "admin/admin_page";
+        return "/admin/admin_page";
     }
 
     @PutMapping()
     public String updateUser(@ModelAttribute("user") User user) {
         userService.update(user);
-        return "redirect:/admin/admin_page";
+        return "redirect:/admin";
     }
 
     @DeleteMapping("/{id}")
     public String removeUser(@PathVariable("id") long id) {
         userService.delete(id);
-        return "redirect:/admin/admin_page";
+        return "redirect:/admin";
     }
 }
