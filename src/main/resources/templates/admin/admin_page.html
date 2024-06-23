@@ -23,6 +23,7 @@
                 <span class="align-middle"> with roles : </span>
                 <span class="align-middle" th:text="${admin.getRoles2()}"></span>
             </p>
+
             <!--Кнопка logout справа-->
             <form th:action="@{/logout}" method="POST">
                 <button type="submit" class="btn btn-dark text-right">Logout</button>
@@ -30,22 +31,27 @@
         </div>
     </nav>
 </header>
+
 <!--Панель сбоку и таблица-->
 <section>
     <div class="container-fluid">
         <div class="row">
+
             <!--Панель сбоку-->
             <div class="p-0 col-2">
                 <div class="nav flex-column nav-pills pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
                     <!--Вкладка админа-->
                     <a class="nav-link active" href="admin" sec:authorize="hasRole('ROLE_ADMIN')" role="tab"
                        aria-controls="v-pills-home" aria-selected="true">Admin</a>
+
                     <!--Вкладка пользователя-->
                     <a class="nav-link" href="user" sec:authorize="(hasAnyRole('ROLE_ADMIN', 'ROLE_USER'))"
                        role="tab"
                        aria-controls="v-pills-profile" aria-selected="false">User</a>
                 </div>
             </div>
+
             <!--Основной контент-->
             <div class="col-10 px-0">
                 <div class="container-fluid">
@@ -262,7 +268,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
