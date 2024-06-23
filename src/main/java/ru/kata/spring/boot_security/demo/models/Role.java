@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +12,6 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "role")
 public class Role implements GrantedAuthority {
 
@@ -27,9 +25,19 @@ public class Role implements GrantedAuthority {
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
+    public Role(String name) {
+        this.name = name;
+    }
+
+    public Role(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+
     @Override
     public String getAuthority() {
-        return name;
+        return getName();
     }
 
     @Override

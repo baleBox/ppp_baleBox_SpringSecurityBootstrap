@@ -23,4 +23,16 @@ public class RoleServiceImpl implements RoleService {
         return roleRepository.findAll();
     }
 
+    @Override
+    public void addRole(Role role) {
+    }
+
+    @Override
+    public Role getRole(Long id) {
+        Optional<Role> role = roleRepository.findById(id);
+        if (role.isEmpty()) {
+            throw new UsernameNotFoundException(String.format("Role with id %s not found", id));
+        }
+        return role.get();
+    }
 }

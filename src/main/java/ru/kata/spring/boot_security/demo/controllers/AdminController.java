@@ -24,7 +24,7 @@ public class AdminController {
         model.addAttribute("admin", admin);
         model.addAttribute("userList", userService.findAll());
         model.addAttribute("roleList", roleService.roleList());
-        return "/admin/admin_page";
+        return "admin/admin_page";
     }
 
     @PutMapping()
