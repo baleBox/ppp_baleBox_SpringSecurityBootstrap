@@ -19,7 +19,7 @@ public class Init {
     private final RoleService roleService;
 
     @PostConstruct
-    public void initDbUsers() {
+    public void initDb() {
 
         if (roleService.roleList().isEmpty()) {
             roleService.addRole(new Role("ROLE_USER"));

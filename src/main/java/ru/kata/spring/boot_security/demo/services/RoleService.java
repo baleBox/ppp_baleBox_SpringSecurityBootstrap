@@ -9,6 +9,4 @@ public interface RoleService {
     List<Role> roleList();
 
     void addRole(Role role);
-
-    Role getRole(Long id);
 }

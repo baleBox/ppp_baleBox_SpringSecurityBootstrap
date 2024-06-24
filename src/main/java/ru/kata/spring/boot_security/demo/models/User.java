@@ -53,7 +53,7 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    public String getRoles2() {
+    public String getRolesInfo() {
         return getRoles().toString().replaceAll("\\,|\\[|\\]|\\s", " ");
     }
 

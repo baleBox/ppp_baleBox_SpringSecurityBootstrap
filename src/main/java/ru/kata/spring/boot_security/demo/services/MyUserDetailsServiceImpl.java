@@ -22,12 +22,14 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         Optional<User> user = userRepository.findByUsername(username);
         Hibernate.initialize(user.get().getRoles());
 
         if (user.isEmpty()) {
             throw new UsernameNotFoundException(String.format("User '%s' not found", username));
         }
+
         return user.get();
     }
 }
