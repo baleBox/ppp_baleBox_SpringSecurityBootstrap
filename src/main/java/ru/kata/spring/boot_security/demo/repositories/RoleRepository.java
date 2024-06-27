@@ -5,10 +5,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.models.Role;
 
-import java.util.Optional;
-
 @Repository
 @Transactional
-public interface RoleRepository extends JpaRepository <Role,Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
 }

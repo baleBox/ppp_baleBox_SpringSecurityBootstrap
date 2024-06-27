@@ -26,13 +26,13 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public User findByUsername(String username) {
-        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Пользователь с таким именем не найден"));
+        return userRepository.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("Пользователь с таким именем не найден"));
     }
 
     @Transactional
     @Override
     public User findById(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("Пользователь с таким ID не найден"));
+        return userRepository.findById(id).orElseThrow(()-> new UsernameNotFoundException("Пользователь с таким ID не найден"));
     }
 
     @Transactional

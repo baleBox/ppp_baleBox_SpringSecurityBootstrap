@@ -34,7 +34,7 @@ public class Init {
             admin.setAge(37);
             admin.setUsername("admin@mail.com");
             admin.setPassword("admin");
-            admin.setRoles(new HashSet<>(List.of(new Role(1L,"ROLE_ADMIN"))));
+            admin.setRoles(new HashSet<>(List.of(new Role(1L, "ROLE_ADMIN"))));
             userService.update(admin);
 
             User user = new User();
@@ -44,7 +44,7 @@ public class Init {
             user.setAge((byte) 27);
             user.setUsername("user@mail.com");
             user.setPassword("user");
-            user.setRoles(new HashSet<>(List.of(new Role(2L,"ROLE_USER"))));
+            user.setRoles(new HashSet<>(List.of(new Role(2L, "ROLE_USER"))));
             userService.update(user);
         }
     }

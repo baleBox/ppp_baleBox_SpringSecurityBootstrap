@@ -47,7 +47,7 @@ public class User implements UserDetails {
     @Email(message = "Нужно ввести email.")
     private String username;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
