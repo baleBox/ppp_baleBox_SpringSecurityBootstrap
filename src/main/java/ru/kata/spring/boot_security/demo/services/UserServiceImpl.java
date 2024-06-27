@@ -26,19 +26,13 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public User findByUsername(String username) {
-        if (userRepository.findByUsername(username).isEmpty()) {
-            throw new UsernameNotFoundException("Пользователь с таким именем не найден");
-        }
-        return userRepository.findByUsername(username).get();
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Пользователь с таким именем не найден"));
     }
 
     @Transactional
     @Override
     public User findById(Long id) {
-        if (userRepository.findById(id).isEmpty()) {
-            throw new UsernameNotFoundException("Пользователь с таким ID не найден");
-        }
-        return userRepository.findById(id).get();
+        return userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("Пользователь с таким ID не найден"));
     }
 
     @Transactional

@@ -21,9 +21,9 @@ public class Init {
     @PostConstruct
     public void initDb() {
 
-        if (roleService.roleList().isEmpty()) {
-            roleService.addRole(new Role("ROLE_USER"));
-            roleService.addRole(new Role("ROLE_ADMIN"));
+        if (roleService.getAll().isEmpty()) {
+            roleService.add(new Role("ROLE_USER"));
+            roleService.add(new Role("ROLE_ADMIN"));
         }
 
         if (userService.findAll().isEmpty()) {

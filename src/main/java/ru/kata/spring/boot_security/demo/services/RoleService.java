@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RoleService {
 
-    List<Role> roleList();
+    List<Role> getAll();
 
-    void addRole(Role role);
+    void add(Role role);
 }

@@ -23,7 +23,7 @@ public class AdminController {
         model.addAttribute("user", new User());
         model.addAttribute("admin", admin);
         model.addAttribute("userList", userService.findAll());
-        model.addAttribute("roleList", roleService.roleList());
+        model.addAttribute("roleList", roleService.getAll());
         return "admin/admin_page";
     }
 
